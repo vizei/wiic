@@ -1,7 +1,7 @@
 import pygame
 import sys
 import wiiuse
-import pydirectinput as pyautogui
+import mouse as pyautogui
 
 pygame.init()
 
@@ -62,8 +62,8 @@ def handle_event(wmp, smoothing_fac):
     pygame.draw.circle(screen, white, smoothpos, radius)
     pygame.display.flip()
 
-    pyautogui.moveTo(
-        smoothpos[0], smoothpos[1], _pause=False, duration=0
+    pyautogui.drag(
+        smoothpos[0], smoothpos[1]
     )
 
     if wiiuse.is_just_pressed(wm, wiiuse.button["A"]):
